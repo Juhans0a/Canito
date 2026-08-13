@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<title>الشروط والأحكام والسياسات — كانيتو</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#0E7A70; --primary-dark:#0A4A45; --primary-light:#1B9689;
+    --accent:#BD8B49; --accent-text:#8C5F26; --accent-soft:#F1E4CD;
+    --bg:#FAF9F5; --bg-alt:#F0F3EE;
+    --surface:#FFFFFF; --ink:#1B211F; --ink-soft:#54605A; --ink-faint:#8B948E;
+    --border:#E3E7DF; --radius-sm:10px; --radius-md:14px; --radius-lg:22px;
+    --shadow:0 1px 2px rgba(20,26,23,.05), 0 10px 30px -16px rgba(20,26,23,.16);
+    --container:880px;
+    --font-display:'Noto Kufi Arabic','IBM Plex Sans Arabic',sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'IBM Plex Sans Arabic',sans-serif; line-height:1.85;
+    direction:rtl; text-align:right;
+  }
+  .wrap{max-width:var(--container); margin:0 auto; padding:0 20px;}
+
+  /* ===== Header ===== */
+  header.site-header{
+    background:rgba(250,249,245,.92); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border); position:sticky; top:0; z-index:40;
+  }
+  header.site-header .wrap{display:flex; align-items:center; justify-content:space-between; padding:14px 20px; max-width:1180px;}
+  .logo{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); font-family:var(--font-display); font-weight:800; font-size:18px;}
+  .logo img{height:30px; width:auto;}
+  .logo .logo-secondary{font-family:'IBM Plex Sans Arabic'; font-weight:500; font-size:12.5px; color:var(--ink-faint); margin-inline-start:2px;}
+  .back-home{font-size:14px; font-weight:600; color:var(--primary-dark); text-decoration:none; display:flex; align-items:center; gap:6px;}
+  .back-home:hover{color:var(--primary);}
+
+  /* ===== Hero / intro ===== */
+  .doc-hero{padding:44px 0 8px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px; background:var(--accent-soft); color:var(--accent-text);
+    padding:6px 14px; border-radius:999px; font-size:12.5px; font-weight:700; margin-bottom:16px;
+  }
+  h1{font-family:var(--font-display); color:var(--primary-dark); font-size:clamp(24px,4vw,32px); margin:0 0 10px; line-height:1.4;}
+  .updated{font-size:13px; color:var(--ink-faint); margin-bottom:22px;}
+  .intro-text p{color:var(--ink-soft); font-size:15.5px; max-width:70ch;}
+  .intro-text p.lead{color:var(--ink); font-weight:600; font-size:16.5px;}
+
+  /* ===== TOC ===== */
+  .toc{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    padding:26px 24px; margin:32px 0 12px; box-shadow:var(--shadow);
+  }
+  .toc h2{
+    font-family:var(--font-display); font-size:16px; color:var(--primary-dark); margin:0 0 16px;
+  }
+  .toc ol{margin:0; padding-inline-start:20px; columns:1;}
+  @media (min-width:640px){ .toc ol{columns:2; column-gap:28px;} }
+  .toc li{font-size:14.5px; margin-bottom:10px; break-inside:avoid;}
+  .toc a{color:var(--ink-soft); text-decoration:none; font-weight:500;}
+  .toc a:hover{color:var(--primary-dark); text-decoration:underline;}
+
+  /* ===== Sections (accordion) ===== */
+  main{padding:12px 0 80px;}
+  details.doc-section{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md);
+    margin-bottom:14px; overflow:hidden; scroll-margin-top:96px;
+  }
+  details.doc-section > summary{
+    list-style:none; cursor:pointer; padding:20px 22px; display:flex; align-items:center; justify-content:space-between; gap:14px;
+  }
+  details.doc-section > summary::-webkit-details-marker{display:none;}
+  details.doc-section > summary h2{
+    font-family:var(--font-display); font-size:17.5px; color:var(--primary-dark); margin:0;
+  }
+  details.doc-section > summary .plus{
+    flex-shrink:0; width:26px; height:26px; border-radius:50%; border:1.5px solid var(--border);
+    display:flex; align-items:center; justify-content:center; color:var(--primary-dark); font-size:16px; transition:transform .2s ease;
+  }
+  details.doc-section[open] > summary .plus{transform:rotate(45deg);}
+  .doc-section-body{padding:0 22px 24px;}
+
+  h3.sub{font-family:var(--font-display); font-size:15.5px; color:var(--ink); margin:20px 0 8px;}
+  p.clause, li.clause{color:var(--ink-soft); font-size:15px; margin:0 0 12px; line-height:1.85;}
+  .clause b.num{color:var(--ink); font-weight:700;}
+  ul.clause-list{margin:0 0 12px; padding-inline-start:0; list-style:none;}
+  ul.clause-list.indent{padding-inline-end:18px;}
+
+  .doc-updated-note{font-size:13px; color:var(--ink-faint); margin-top:6px;}
+
+  /* Focus visibility */
+  a:focus-visible, summary:focus-visible{outline:2px solid var(--primary); outline-offset:2px;}
+
+  @media (prefers-reduced-motion: reduce){ *{scroll-behavior:auto !important; transition:none !important;} }
+
+  /* ===== Footer (simple) ===== */
+  footer.doc-footer{border-top:1px solid var(--border); padding:26px 0; text-align:center; font-size:13px; color:var(--ink-faint);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="">كانيتو<span class="logo-secondary">Can Ito</span></a>
+    <a href="index.html" class="back-home">→ العودة للصفحة الرئيسية</a>
+  </div>
+</header>
+
+<div class="doc-hero wrap">
+  <span class="eyebrow">الوثيقة النظامية</span>
+  <h1>الشروط والأحكام والسياسات</h1>
+  <p class="updated">آخر تحديث: ١٢ أغسطس ٢٠٢٦</p>
+
+  <div class="intro-text">
+    <p class="lead">مرحبًا بكم في كانيتو.</p>
+    <p>باستخدام خدمات كانيتو أو الاشتراك في أي من برامجها التعليمية، يقر العميل وولي الأمر بالاطلاع على هذه الشروط والأحكام والسياسات والموافقة عليها، وذلك في حدود ما تسمح به الأنظمة واللوائح المعمول بها في المملكة العربية السعودية.</p>
+    <p>تهدف هذه الوثيقة إلى تنظيم العلاقة بين كانيتو والعميل، وتوضيح حقوق والتزامات الأطراف وآلية تقديم الخدمات التعليمية.</p>
+  </div>
+
+  <nav class="toc" aria-label="فهرس الأقسام">
+    <h2>فهرس الأقسام</h2>
+    <ol>
+      <li><a href="#sec-1">١. الأحكام العامة</a></li>
+      <li><a href="#sec-2">٢. الخصوصية وحماية البيانات</a></li>
+      <li><a href="#sec-3">٣. سرية وتسجيل الجلسات التعليمية</a></li>
+      <li><a href="#sec-4">٤. مسؤوليات الطالب وولي الأمر</a></li>
+      <li><a href="#sec-5">٥. الاشتراك والباقات</a></li>
+      <li><a href="#sec-6">٦. الجدول الدراسي والمواعيد</a></li>
+      <li><a href="#sec-7">٧. إلغاء الحصص وإعادة جدولتها</a></li>
+      <li><a href="#sec-8">٨. الحضور والتأخر</a></li>
+      <li><a href="#sec-9">٩. سلامة المعلم وبيئة تقديم الخدمة الحضورية</a></li>
+      <li><a href="#sec-10">١٠. سياسة تعويض الحصص</a></li>
+      <li><a href="#sec-11">١١. التواصل والشكاوى</a></li>
+      <li><a href="#sec-12">١٢. جودة الخدمة والمتابعة التعليمية</a></li>
+      <li><a href="#sec-13">١٣. النتائج التعليمية</a></li>
+      <li><a href="#sec-14">١٤. سياسة الاسترجاع والاستبدال</a></li>
+      <li><a href="#sec-15">١٥. الأحكام الختامية</a></li>
+    </ol>
+  </nav>
+</div>
+
+<main class="wrap">
+
+  <!-- 1 -->
+  <details class="doc-section" id="sec-1" open>
+    <summary><h2>١. الأحكام العامة</h2><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="doc-section-body">
+      <p class="clause"><b class="num">١.١.</b> تقدم كانيتو برامج وخدمات تعليمية وفق الباقات والبرامج المتاحة وقت الاشتراك.</p>
+      <p class="clause"><b class="num">١.٢.</b> تختلف تفاصيل الخدمة وعدد الساعات والحصص والمكونات التعليمية بحسب الباقة المختارة.</p>
+      <p class="clause"><b class="num">١.٣.</b> يتم تقديم الخدمة وفق البرنامج والجدول المتفق عليه مع العميل.</p>
+      <p class="clause"><b class="num">١.٤.</b> يلتزم العميل وولي الأمر بتقديم المعلومات الصحيحة والكاملة اللازمة لتمكين كانيتو من تقديم الخدمة بالشكل المناسب.</p>
+      <p class="clause"><b class="num">١.٥.</b> لا تضمن كانيتو تحقيق درجة أو نتيجة تعليمية محددة، إذ يعتمد تقدم الطالب على عدة عوامل، منها مستواه الأساسي، والالتزام بالحضور، والممارسة، والمراجعة، والتفاعل مع البرنامج.</p>
+      <p class="clause"><b class="num">١.٦.</b> يحق لكانيتو تحديث هذه الشروط والأحكام والسياسات عند الحاجة، وتصبح النسخة المنشورة على الموقع هي النسخة المعتمدة اعتبارًا من تاريخ تحديثها.</p>
+      <p class="clause"><b class="num">١.٧.</b> لا تؤثر هذه الشروط والأحكام على أي حقوق مقررة للعميل بموجب الأنظمة واللوائح المعمول بها في المملكة العربية السعودية.</p>
+    </div>
+  </details>
+
+  <!-- 2 -->
+  <details class="doc-section" id="sec-2">
+    <summary><h2>٢. الخصوصية وحماية البيانات</h2><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="doc-section-body">
+      <p class="clause"><b class="num">٢.١.</b> تلتزم كانيتو بالتعامل مع بيانات العملاء والطلاب وفق الأنظمة واللوائح المعمول بها في المملكة العربية السعودية.</p>
+      <p class="clause"><b class="num">٢.٢.</b> قد يتم جمع البيانات اللازمة لإتمام التسجيل، وإدارة الاشتراك، وتقديم الخدمة، والتواصل مع العميل، ومتابعة البرنامج التعليمي.</p>
+      <p class="clause"><b class="num">٢.٣.</b> تستخدم بيانات العميل بالقدر اللازم لتقديم الخدمات وإدارة الاشتراكات وتحسين تجربة العميل.</p>
+      <p class="clause"><b class="num">٢.٤.</b> تلتزم كانيتو باتخاذ الإجراءات المناسبة لحماية بيانات العملاء من الوصول أو الاستخدام غير المصرح به.</p>
+      <p class="clause"><b class="num">٢.٥.</b> يلتزم العميل بتقديم بيانات صحيحة ومحدثة، وإبلاغ كانيتو بأي تغيير جوهري في البيانات اللازمة لتقديم الخدمة.</p>
+      <p class="clause"><b class="num">٢.٦.</b> يتم التعامل مع بيانات الطلاب وأولياء الأمور بسرية وفقًا للأنظمة والسياسات المعتمدة لدى كانيتو.</p>
+    </div>
+  </details>
+
+  <!-- 3 -->
+  <details class="doc-section" id="sec-3">
+    <summary><h2>٣. سرية وتسجيل الجلسات التعليمية</h2><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="doc-section-body">
+      <p class="clause"><b class="num">٣.١.</b> يحظر على الطالب أو ولي الأمر أو أي طرف آخر تسجيل أو تصوير أو التقاط شاشة الجلسات التعليمية المقدمة عبر الإنترنت، سواء بالصوت أو الصورة أو الفيديو، كليًا أو جزئيًا، دون الحصول على موافقة مسبقة من كانيتو والمعلم.</p>
+      <p class="clause"><b class="num">٣.٢.</b> يحظر نسخ أو حفظ أو مشاركة أو إعادة نشر أي تسجيل أو صورة أو لقطة شاشة أو محتوى ناتج عن الجلسة التعليمية مع أي طرف آخر دون موافقة مسبقة.</p>
+      <p class="clause"><b class="num">٣.٣.</b> يشمل الحظر استخدام أي وسيلة أو جهاز أو برنامج مخصص لتسجيل الشاشة أو الصوت أو الفيديو أثناء الجلسة.</p>
+      <p class="clause"><b class="num">٣.٤.</b> لا يجوز استخدام أي تسجيل أو صورة أو محتوى من الجلسة لأغراض تجارية أو تعليمية أو نشرها عبر وسائل التواصل الاجتماعي أو أي منصة أخرى دون موافقة خطية مسبقة من كانيتو.</p>
+      <p class="clause"><b class="num">٣.٥.</b> يحق لكانيتو اتخاذ الإجراءات المناسبة عند مخالفة هذا البند، بما في ذلك إيقاف الجلسة أو تعليق الخدمة أو اتخاذ الإجراءات النظامية اللازمة، وفقًا لطبيعة المخالفة والأنظمة المعمول بها.</p>
+      <p class="clause"><b class="num">٣.٦.</b> لا يمنع هذا البند أي تسجيل أو توثيق يتم من قبل كانيتو لأغراض مشروعة تتعلق بتقديم الخدمة أو الجودة أو الحماية، متى كان ذلك وفق الأنظمة والسياسات المعمول بها.</p>
+    </div>
+  </details>
+
+  <!-- 4 -->
+  <details class="doc-section" id="sec-4">
+    <summary><h2>٤. مسؤوليات الطالب وولي الأمر</h2><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="doc-section-body">
+      <p class="clause"><b class="num">٤.١.</b> الالتزام بالمواعيد والجدول المعتمد.</p>
+      <p class="clause"><b class="num">٤.٢.</b> توفير البيئة المناسبة للحصة.</p>
+      <p class="clause"><b class="num">٤.٣.</b> الالتزام بسياسات الحضور والإلغاء وإعادة الجدولة والتعويض.</p>
+      <p class="clause"><b class="num">٤.٤.</b> متابعة التعليمات والتوصيات التعليمية المقدمة.</p>
+      <p class="clause"><b class="num">٤.٥.</b> استخدام قنوات التواصل الرسمية المعتمدة.</p>
+      <p class="clause"><b class="num">٤.٦.</b> إبلاغ كانيتو بالمشكلات في أقرب وقت ممكن.</p>
+      <p class="clause"><b class="num">٤.٧.</b> المحافظة على سرية بيانات الدخول وعدم مشاركتها مع الآخرين.</p>
+      <p class="clause"><b class="num">٤.٨.</b> الالتزام بمتطلبات السلامة الخاصة بالخدمات الحضورية الواردة في البند ٩.</p>
+      <p class="clause"><b class="num">٤.٩.</b> الالتزام بالاحترام المتبادل وعدم الإساءة إلى المعلمين أو المعلمات أو موظفي كانيتو بأي شكل من الأشكال.</p>
+    </div>
+  </details>
+
+  <!-- 5 -->
+  <details class="doc-section" id="sec-5">
+    <summary><h2>٥. الاشتراك والباقات</h2><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="doc-section-body">
+      <p class="clause"><b class="num">٥.١.</b> يتم الاشتراك في خدمات كانيتو وفق الباقات المتاحة على الموقع.</p>
+      <p class="clause"><b class="num">٥.٢.</b> يتم سداد قيمة الاشتراك مقدمًا وفق السعر الموضح للباقة وقت الشراء.</p>
+      <p class="clause"><b class="num">٥.٣.</b> تكون الباقات شهرية ما لم يتم توضيح خلاف ذلك في تفاصيل الباقة.</p>
+      <p class="clause"><b class="num">٥.٤.</b> تختلف أعداد الساعات والحصص والخدمات التعليمية بحسب الباقة المختارة.</p>
+      <p class="clause"><b class="num">٥.٥.</b> تبدأ الاستفادة من الباقة وفق تاريخ بدء البرنامج المتفق عليه مع العميل.</p>
+      <p class="clause"><b class="num">٥.٦.</b> لا يجوز نقل الاشتراك إلى طالب آخر إلا بعد موافقة كانيتو.</p>
+      <p class="clause"><b class="num">٥.٧.</b> لا يجوز مشاركة الاشتراك أو بيانات الدخول مع أي شخص آخر.</p>
+      <p class="clause"><b class="num">٥.٨.</b> يلتزم العميل باستخدام الخدمة للغرض المخصص لها وعدم إساءة استخدامها.</p>
+    </div>
+  </details>
+
+  <!-- 6 -->
+  <details class="doc-section" id="sec-6">
+    <summary><h2>٦. الجدول الدراسي والمواعيد</h2><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="doc-section-body">
+      <p class="clause"><b class="num">٦.١.</b> يتم الاتفاق على جدول دراسي للطالب عند بدء البرنامج.</p>
+      <p class="clause"><b class="num">٦.٢.</b> يعد الالتزام بالجدول جزءًا أساسيًا من استمرارية البرنامج وتحقيق الاستفادة التعليمية.</p>
+      <p class="clause"><b class="num">٦.٣.</b> يجب أن تتم مناقشات تحديد المواعيد أو تعديلها من خلال مجموعة WhatsApp المخصصة للطالب.</p>
+      <p class="clause"><b class="num">٦.٤.</b> يعتبر الموعد المتفق عليه داخل المجموعة هو الموعد المعتمد للحصة، ما لم يتم الاتفاق على تعديله وفقًا لهذه الشروط والأحكام.</p>
+      <p class="clause"><b class="num">٦.٥.</b> تهدف هذه الآلية إلى توثيق المواعيد وتقليل الخلافات المتعلقة بالحضور وإعادة الجدولة.</p>
+    </div>
+  </details>
+
+  <!-- 7 -->
+  <details class="doc-section" id="sec-7">
+    <summary><h2>٧. إلغاء الحصص وإعادة جدولتها</h2><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="doc-section-body">
+      <p class="clause"><b class="num">٧.١.</b> في حال رغبة الطالب أو ولي الأمر في إلغاء الحصة أو إعادة جدولتها، يجب إبلاغ المعلم من خلال مجموعة WhatsApp المخصصة قبل موعد الحصة بـ ٦ ساعات على الأقل.</p>
+      <p class="clause"><b class="num">٧.٢.</b> في حال الالتزام بمدة الإبلاغ المحددة في البند ٧.١.، يمكن إعادة جدولة الحصة وفق المواعيد المتاحة.</p>
+      <p class="clause"><b class="num">٧.٣.</b> في حال عدم الالتزام بمدة الإبلاغ المحددة في البند ٧.١.، يحق لكانيتو احتساب الحصة ضمن الباقة وخصمها من الرصيد المتاح.</p>
+      <p class="clause"><b class="num">٧.٤.</b> في الحالات الطارئة، يحق لفريق كانيتو مراجعة الحالة واتخاذ الإجراء المناسب وفقًا لظروفها.</p>
+      <p class="clause"><b class="num">٧.٥.</b> في حال تكرار الإلغاء أو إعادة الجدولة لأكثر من مرتين متتاليتين، يحق لكانيتو تجميد الباقة لمدة تصل إلى أسبوع واحد.</p>
+      <p class="clause"><b class="num">٧.٦.</b> تهدف هذه السياسة إلى المحافظة على انتظام البرنامج واحترام وقت الطالب والمعلم.</p>
+    </div>
+  </details>
+
+  <!-- 8 -->
+  <details class="doc-section" id="sec-8">
+    <summary><h2>٨. الحضور والتأخر</h2><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="doc-section-body">
+      <h3 class="sub">٨.١. تأخر الطالب</h3>
+      <p class="clause"><b class="num">٨.١.١.</b> ينتظر المعلم حضور الطالب لمدة ١٥ دقيقة من بداية الموعد المحدد.</p>
+      <p class="clause"><b class="num">٨.١.٢.</b> إذا حضر الطالب خلال أول ١٥ دقيقة، تستمر الحصة بالوقت المتبقي من الموعد الأصلي.</p>
+      <p class="clause"><b class="num">٨.١.٣.</b> لا يتم تمديد وقت الحصة لتعويض وقت التأخر.</p>
+      <p class="clause"><b class="num">٨.١.٤.</b> في حال عدم حضور الطالب خلال أول ١٥ دقيقة، يحق لكانيتو اعتبار الحصة ملغاة بسبب عدم الحضور واحتسابها من الباقة، ما لم يعتمد فريق كانيتو استثناءً للحالة.</p>
+
+      <h3 class="sub">٨.٢. تأخر المعلم أو عدم حضوره</h3>
+      <p class="clause"><b class="num">٨.٢.١.</b> في حال تأخر المعلم عن موعد الحصة أو تعذر عليه تقديمها، تعمل كانيتو على معالجة الحالة بما يحفظ حق الطالب في الخدمة التعليمية.</p>
+      <p class="clause"><b class="num">٨.٢.٢.</b> قد تشمل المعالجة إعادة جدولة الحصة أو تعويض الوقت المتأثر، وفق طبيعة الحالة.</p>
+    </div>
+  </details>
+
+  <!-- 9 -->
+  <details class="doc-section" id="sec-9">
+    <summary><h2>٩. سلامة المعلم وبيئة تقديم الخدمة الحضورية</h2><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="doc-section-body">
+      <p class="clause"><b class="num">٩.١.</b> عند تقديم الخدمة التعليمية الحضورية في منزل الطالب، يلتزم ولي الأمر بتوفير بيئة آمنة ومحترمة ومناسبة للمعلم أو المعلمة طوال فترة تقديم الخدمة.</p>
+      <p class="clause"><b class="num">٩.٢.</b> يلتزم ولي الأمر بمنع أي إساءة لفظية أو جسدية أو تهديد أو اعتداء أو سلوك غير لائق تجاه المعلم أو المعلمة من قبل الطالب أو ولي الأمر أو أي شخص آخر موجود في موقع تقديم الخدمة.</p>
+      <p class="clause"><b class="num">٩.٣.</b> في حال كانت الخدمة التعليمية مقدمة لطالبة، يلتزم ولي الأمر بتوفير امرأة بالغة ومسؤولة تكون موجودة طوال مدة اللقاء التعليمي الحضوري.</p>
+      <p class="clause"><b class="num">٩.٤.</b> لا يجوز ترك المعلمة أو الطالبة في المنزل دون وجود المرأة البالغة والمسؤولة المشار إليها في البند ٩.٣..</p>
+      <p class="clause"><b class="num">٩.٥.</b> يلتزم ولي الأمر بالتواجد أو توفير شخص بالغ مسؤول أثناء تقديم الحصة الحضورية وفق الترتيبات المعتمدة لدى كانيتو.</p>
+      <p class="clause"><b class="num">٩.٦.</b> في حال وقوع أي إساءة لفظية أو جسدية أو تهديد أو اعتداء أو أي سلوك يعرض المعلم أو المعلمة للخطر، يحق لكانيتو إيقاف الحصة والخدمة فورًا واتخاذ الإجراءات المناسبة لحماية مقدم الخدمة.</p>
+      <p class="clause"><b class="num">٩.٧.</b> يتحمل المتسبب في أي مخالفة أو اعتداء المسؤولية النظامية عن تصرفاته.</p>
+      <p class="clause"><b class="num">٩.٨.</b> يحق لكانيتو أو لمقدم الخدمة المتضرر اتخاذ الإجراءات النظامية ورفع البلاغ إلى الجهات المختصة متى كان ذلك مستوجبًا، وفقًا للأنظمة واللوائح المعمول بها في المملكة العربية السعودية.</p>
+      <p class="clause"><b class="num">٩.٩.</b> لا تتحمل كانيتو مسؤولية الأضرار أو التبعات الناتجة عن تصرفات غير نظامية صادرة من الطالب أو ولي الأمر أو أي شخص آخر داخل موقع تقديم الخدمة، وذلك في حدود ما تقرره الأنظمة.</p>
+    </div>
+  </details>
+
+  <!-- 10 -->
+  <details class="doc-section" id="sec-10">
+    <summary><h2>١٠. سياسة تعويض الحصص</h2><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="doc-section-body">
+      <p class="clause"><b class="num">١٠.١.</b> يتم تعويض الحصص التي تستوفي شروط التعويض وفقًا لهذه الشروط والأحكام.</p>
+      <p class="clause"><b class="num">١٠.٢.</b> يقتصر إجمالي الساعات القابلة للتعويض خلال فترة الاشتراك على ٢٠٪ كحد أقصى من إجمالي الساعات التعليمية الفعلية للباقة.</p>
+      <p class="clause"><b class="num">١٠.٣.</b> يتم احتساب الحد الأقصى للتعويض بناءً على إجمالي الساعات التعليمية المتضمنة في الباقة.</p>
+      <p class="clause"><b class="num">١٠.٤.</b> لا يتم ترحيل الساعات التي تتجاوز الحد المسموح به للتعويض إلى اشتراك لاحق، ما لم توافق كانيتو على ذلك بشكل استثنائي.</p>
+      <p class="clause"><b class="num">١٠.٥.</b> يهدف نظام التعويض إلى تحقيق التوازن بين مرونة العميل واستمرارية الخطة التعليمية وانتظام جدول المعلم.</p>
+    </div>
+  </details>
+
+  <!-- 11 -->
+  <details class="doc-section" id="sec-11">
+    <summary><h2>١١. التواصل والشكاوى</h2><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="doc-section-body">
+      <p class="clause"><b class="num">١١.١.</b> تستخدم مجموعة WhatsApp المخصصة للطالب للتنسيق المتعلق بالمواعيد والحصص.</p>
+      <p class="clause"><b class="num">١١.٢.</b> يجب تقديم الشكاوى والملاحظات والطلبات التي تتطلب متابعة من خلال قنوات خدمة العملاء الرسمية المعتمدة لدى كانيتو.</p>
+      <p class="clause"><b class="num">١١.٣.</b> يعتبر التواصل مع خدمة العملاء الوسيلة الرسمية لضمان تسجيل الطلب ومتابعته.</p>
+      <p class="clause"><b class="num">١١.٤.</b> طرح المشكلة داخل مجموعة WhatsApp وحده لا يعتبر شكوى رسمية ما لم يتم تسجيلها من خلال قناة خدمة العملاء.</p>
+      <p class="clause"><b class="num">١١.٥.</b> تعمل كانيتو على مراجعة الشكاوى والملاحظات واتخاذ الإجراء المناسب وفق طبيعة كل حالة.</p>
+    </div>
+  </details>
+
+  <!-- 12 -->
+  <details class="doc-section" id="sec-12">
+    <summary><h2>١٢. جودة الخدمة والمتابعة التعليمية</h2><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="doc-section-body">
+      <p class="clause"><b class="num">١٢.١.</b> تعمل كانيتو على تقديم الخدمة التعليمية وفق البرنامج المتفق عليه ومتابعة رحلة الطالب بما يتناسب مع طبيعة الباقة.</p>
+      <p class="clause"><b class="num">١٢.٢.</b> في حال وجود ملاحظات على مستوى الاستفادة أو التقدم، يمكن للعميل طلب مراجعة الحالة.</p>
+      <p class="clause"><b class="num">١٢.٣.</b> قد تشمل مراجعة الحالة مراجعة احتياج الطالب ومستواه وأهدافه التعليمية ومدى ملاءمة المعلم.</p>
+      <p class="clause"><b class="num">١٢.٤.</b> قد تشمل الإجراءات التصحيحية تعديل الخطة التعليمية أو تغيير المعلم أو تعزيز المتابعة والمراجعة، وفق ما تراه كانيتو مناسبًا للحالة.</p>
+      <p class="clause"><b class="num">١٢.٥.</b> تهدف إجراءات المراجعة والتصحيح إلى معالجة المشكلات المتعلقة بالخدمة ودعم استمرار الطالب في البرنامج.</p>
+    </div>
+  </details>
+
+  <!-- 13 -->
+  <details class="doc-section" id="sec-13">
+    <summary><h2>١٣. النتائج التعليمية</h2><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="doc-section-body">
+      <p class="clause"><b class="num">١٣.١.</b> تقدم كانيتو خدمات تعليمية تهدف إلى دعم الطالب وتطوير مستواه، ولا تضمن تحقيق درجة أو نتيجة تعليمية محددة.</p>
+      <p class="clause"><b class="num">١٣.٢.</b> يعتمد تقدم الطالب على عدة عوامل، منها مستوى الطالب عند بداية البرنامج، والالتزام بالحضور، والممارسة والمراجعة، والمشاركة والتفاعل، والالتزام بالخطة التعليمية.</p>
+      <p class="clause"><b class="num">١٣.٣.</b> لا يعتبر عدم تحقيق نتيجة أو درجة محددة بحد ذاته سببًا تلقائيًا للاسترجاع.</p>
+      <p class="clause"><b class="num">١٣.٤.</b> لا يؤثر البند ١٣.٣. على حق العميل في تقديم شكوى أو طلب مراجعة في حال وجود قصور في الخدمة المقدمة.</p>
+    </div>
+  </details>
+
+  <!-- 14 -->
+  <details class="doc-section" id="sec-14">
+    <summary><h2>١٤. سياسة الاسترجاع والاستبدال</h2><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="doc-section-body">
+      <h3 class="sub">١٤.١. فترة طلب الاسترجاع</h3>
+      <p class="clause"><b class="num">١٤.١.١.</b> يمكن للعميل تقديم طلب الاسترجاع خلال ٧ أيام من تاريخ شراء الباقة، وفقًا للشروط الواردة في هذه السياسة.</p>
+      <p class="clause"><b class="num">١٤.١.٢.</b> بعد انتهاء مدة الـ٧ أيام، لا يكون عدم الرضا عن مستوى الاستفادة أو التقدم سببًا تلقائيًا للاسترجاع النقدي، مع مراعاة الحالات التي يثبت فيها وجود قصور في تقديم الخدمة.</p>
+
+      <h3 class="sub">١٤.٢. عدم الاستمرار بعد الحصة التجريبية</h3>
+      <p class="clause"><b class="num">١٤.٢.١.</b> إذا قرر العميل عدم الاستمرار بعد الحصة التجريبية وقبل البدء في استخدام الباقة التعليمية المدفوعة، يمكنه طلب الاسترجاع وفقًا لهذه السياسة.</p>
+      <p class="clause"><b class="num">١٤.٢.٢.</b> في هذه الحالة، يتم استرجاع ٧٥٪ من قيمة الباقة، وتحتفظ كانيتو بنسبة ٢٥٪ مقابل إجراءات التسجيل والتجهيز والتنسيق والحجز.</p>
+
+      <h3 class="sub">١٤.٣. عدم القدرة على تقديم الخدمة</h3>
+      <p class="clause"><b class="num">١٤.٣.١.</b> إذا لم تتمكن كانيتو من توفير معلم مناسب خلال المدة المتفق عليها، تتم مراجعة الحالة واتخاذ الإجراء المناسب.</p>
+      <p class="clause"><b class="num">١٤.٣.٢.</b> إذا تعذر على كانيتو تقديم الخدمة المتفق عليها ولم تتمكن من توفير بديل مناسب، قد يشمل الإجراء استرجاع المبلغ المستحق وفقًا لطبيعة الخدمة التي لم يتم تقديمها.</p>
+
+      <h3 class="sub">١٤.٤. بعد بدء البرنامج</h3>
+      <p class="clause"><b class="num">١٤.٤.١.</b> بعد بدء استخدام الباقة، لا يكون عدم الرضا عن مستوى الاستفادة أو التقدم سببًا تلقائيًا للاسترجاع النقدي.</p>
+      <p class="clause"><b class="num">١٤.٤.٢.</b> تتم مراجعة الحالة ومحاولة معالجة المشكلة من خلال الإجراءات التصحيحية المناسبة وفقًا للبند ١٢.</p>
+
+      <h3 class="sub">١٤.٥. القسائم والاستبدال</h3>
+      <p class="clause"><b class="num">١٤.٥.١.</b> عند اعتماد القسيمة كحل بديل، يمكن استخدامها خلال مدة صلاحيتها المحددة.</p>
+      <p class="clause"><b class="num">١٤.٥.٢.</b> يمكن استبدال القسيمة بباقة تعليمية متاحة لدى كانيتو.</p>
+      <p class="clause"><b class="num">١٤.٥.٣.</b> يمكن استخدام القسيمة في مادة أو مستوى دراسي مختلف وفق البرامج المتاحة.</p>
+      <p class="clause"><b class="num">١٤.٥.٤.</b> لا يمكن استبدال القسيمة بقيمتها النقدية.</p>
+      <p class="clause"><b class="num">١٤.٥.٥.</b> لا يمكن استخدام القسيمة بعد انتهاء مدة صلاحيتها.</p>
+
+      <h3 class="sub">١٤.٦. معالجة المبالغ المسترجعة</h3>
+      <p class="clause"><b class="num">١٤.٦.١.</b> في حال الموافقة على الاسترجاع النقدي، تتم معالجة المبلغ خلال مدة تصل إلى ٧ أيام عمل من تاريخ استكمال العميل للمعلومات المطلوبة.</p>
+      <p class="clause"><b class="num">١٤.٦.٢.</b> قد يستغرق وصول المبلغ إلى حساب العميل مدة إضافية وفقًا لإجراءات البنك أو مزود خدمة الدفع.</p>
+    </div>
+  </details>
+
+  <!-- 15 -->
+  <details class="doc-section" id="sec-15">
+    <summary><h2>١٥. الأحكام الختامية</h2><span class="plus" aria-hidden="true">+</span></summary>
+    <div class="doc-section-body">
+      <p class="clause"><b class="num">١٥.١.</b> تشكل هذه الوثيقة المرجع التنظيمي للخدمات والباقات المقدمة من كانيتو، إلى جانب أي اتفاقية أو شروط خاصة يتم الاتفاق عليها مع العميل أو الجهة المتعاقدة.</p>
+      <p class="clause"><b class="num">١٥.٢.</b> في حال وجود تعارض بين هذه الشروط وأي اتفاقية مكتوبة خاصة، تسري أحكام الاتفاقية الخاصة في حدود ما تسمح به الأنظمة.</p>
+      <p class="clause"><b class="num">١٥.٣.</b> لا يعد أي استثناء يتم منحه في حالة فردية تعديلًا دائمًا لهذه السياسة أو تنازلًا عن أي حق من حقوق كانيتو.</p>
+      <p class="clause"><b class="num">١٥.٤.</b> تحتفظ كانيتو بحق تحديث هذه الشروط والأحكام والسياسات عند الحاجة، وتصبح النسخة المنشورة على الموقع هي النسخة المعتمدة من تاريخ تحديثها.</p>
+      <p class="clause"><b class="num">١٥.٥.</b> تخضع هذه الشروط والأحكام للأنظمة واللوائح المعمول بها في المملكة العربية السعودية.</p>
+    </div>
+  </details>
+
+</main>
+
+<footer class="doc-footer">
+  <div class="wrap">© <span id="year"></span> كانيتو. جميع الحقوق محفوظة.</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Ensure target section opens when navigated to via TOC or external link/hash
+  function openTargetSection(){
+    const hash = window.location.hash;
+    if(!hash) return;
+    const el = document.querySelector(hash);
+    if(el && el.tagName === 'DETAILS'){
+      el.setAttribute('open','');
+    }
+  }
+  window.addEventListener('hashchange', openTargetSection);
+  openTargetSection();
+
+  document.querySelectorAll('.toc a').forEach(function(link){
+    link.addEventListener('click', function(){
+      const id = this.getAttribute('href');
+      const el = document.querySelector(id);
+      if(el && el.tagName === 'DETAILS'){ el.setAttribute('open',''); }
+    });
+  });
+</script>
+
+</body>
+</html>
