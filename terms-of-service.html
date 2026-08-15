@@ -13,8 +13,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --primary:#0E7A70; --primary-dark:#0A4A45; --primary-light:#1B9689;
-    --accent:#BD8B49; --accent-text:#8C5F26; --accent-soft:#F1E4CD;
+    --primary:#006B68; --primary-dark:#004A47; --primary-light:#18A7A5;
+    --accent:#D4A43A; --accent-text:#8A6A1E; --accent-soft:#F8EFD6;
     --bg:#FAF9F5; --bg-alt:#F0F3EE;
     --surface:#FFFFFF; --ink:#1B211F; --ink-soft:#54605A; --ink-faint:#8B948E;
     --border:#E3E7DF; --radius-sm:10px; --radius-md:14px; --radius-lg:22px;
@@ -23,11 +23,11 @@
     --font-display:'Noto Kufi Arabic','IBM Plex Sans Arabic',sans-serif;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; overflow-x:hidden;}
   body{
     margin:0; background:var(--bg); color:var(--ink);
     font-family:'IBM Plex Sans Arabic',sans-serif; line-height:1.85;
-    direction:rtl; text-align:right;
+    direction:rtl; text-align:right; overflow-x:hidden;
   }
   .wrap{max-width:var(--container); margin:0 auto; padding:0 20px;}
 
@@ -36,12 +36,20 @@
     background:rgba(250,249,245,.92); backdrop-filter:blur(8px);
     border-bottom:1px solid var(--border); position:sticky; top:0; z-index:40;
   }
-  header.site-header .wrap{display:flex; align-items:center; justify-content:space-between; padding:14px 20px; max-width:1180px;}
-  .logo{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); font-family:var(--font-display); font-weight:800; font-size:18px;}
+  header.site-header .wrap{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:14px 20px; max-width:1180px; flex-wrap:wrap;
+  }
+  .logo{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); font-family:var(--font-display); font-weight:800; font-size:18px; flex-shrink:0;}
   .logo img{height:30px; width:auto;}
   .logo .logo-secondary{font-family:'IBM Plex Sans Arabic'; font-weight:500; font-size:12.5px; color:var(--ink-faint); margin-inline-start:2px;}
-  .back-home{font-size:14px; font-weight:600; color:var(--primary-dark); text-decoration:none; display:flex; align-items:center; gap:6px;}
+  .back-home{font-size:13.5px; font-weight:600; color:var(--primary-dark); text-decoration:none; display:flex; align-items:center; gap:6px; white-space:nowrap;}
   .back-home:hover{color:var(--primary);}
+  @media (max-width:420px){
+    .logo{font-size:15px;}
+    .logo img{height:26px;}
+    .back-home{font-size:12px;}
+  }
 
   /* ===== Hero / intro ===== */
   .doc-hero{padding:44px 0 8px;}
@@ -67,6 +75,10 @@
   .toc li{font-size:14.5px; margin-bottom:10px; break-inside:avoid;}
   .toc a{color:var(--ink-soft); text-decoration:none; font-weight:500;}
   .toc a:hover{color:var(--primary-dark); text-decoration:underline;}
+  @media (max-width:480px){
+    .toc{padding:18px 16px;}
+    .doc-hero{padding:28px 0 8px;}
+  }
 
   /* ===== Sections (accordion) ===== */
   main{padding:12px 0 80px;}
@@ -75,24 +87,37 @@
     margin-bottom:14px; overflow:hidden; scroll-margin-top:96px;
   }
   details.doc-section > summary{
-    list-style:none; cursor:pointer; padding:20px 22px; display:flex; align-items:center; justify-content:space-between; gap:14px;
+    list-style:none; cursor:pointer; padding:20px 22px; display:flex; align-items:flex-start; justify-content:space-between; gap:14px;
   }
   details.doc-section > summary::-webkit-details-marker{display:none;}
   details.doc-section > summary h2{
     font-family:var(--font-display); font-size:17.5px; color:var(--primary-dark); margin:0;
+    flex:1 1 auto; min-width:0; word-break:break-word; line-height:1.5;
   }
   details.doc-section > summary .plus{
     flex-shrink:0; width:26px; height:26px; border-radius:50%; border:1.5px solid var(--border);
     display:flex; align-items:center; justify-content:center; color:var(--primary-dark); font-size:16px; transition:transform .2s ease;
+    margin-top:2px;
   }
   details.doc-section[open] > summary .plus{transform:rotate(45deg);}
   .doc-section-body{padding:0 22px 24px;}
+  @media (max-width:480px){
+    details.doc-section > summary{padding:16px 16px;}
+    details.doc-section > summary h2{font-size:15.5px;}
+    .doc-section-body{padding:0 16px 20px;}
+  }
 
   h3.sub{font-family:var(--font-display); font-size:15.5px; color:var(--ink); margin:20px 0 8px;}
-  p.clause, li.clause{color:var(--ink-soft); font-size:15px; margin:0 0 12px; line-height:1.85;}
+  p.clause, li.clause{color:var(--ink-soft); font-size:15px; margin:0 0 12px; line-height:1.85; word-break:break-word;}
   .clause b.num{color:var(--ink); font-weight:700;}
   ul.clause-list{margin:0 0 12px; padding-inline-start:0; list-style:none;}
   ul.clause-list.indent{padding-inline-end:18px;}
+  @media (max-width:480px){
+    p.clause, li.clause{font-size:14px;}
+    h1{font-size:22px;}
+    .intro-text p.lead{font-size:15px;}
+    .intro-text p{font-size:14px;}
+  }
 
   .doc-updated-note{font-size:13px; color:var(--ink-faint); margin-top:6px;}
 
@@ -109,7 +134,7 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a href="index.html" class="logo"><img src="assets/logo.png" alt="">كانيتو<span class="logo-secondary">Can Ito</span></a>
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="كانيتو" style="height:34px;width:auto;"></a>
     <a href="index.html" class="back-home">→ العودة للصفحة الرئيسية</a>
   </div>
 </header>
