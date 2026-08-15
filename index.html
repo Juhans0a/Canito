@@ -22,7 +22,7 @@
 <meta property="og:locale" content="ar_SA">
 <meta property="og:site_name" content="كانيتو">
 <meta property="og:title" content="كانيتو — رحلة تعليمية مستمرة، وليست مجرد لقاءات تعليمية">
-<meta property="og:description" content="نعرف أين يحتاج ابنك للدعم، ونساعده على التقدم خطوة بخطوة. تقييم مجاني خلال فترة الإطلاق التجريبية.">
+<meta property="og:description" content="نعرف أين يحتاج ابنك للدعم، ونساعده على التقدم خطوة بخطوة.">
 <meta property="og:url" content="https://example.com/">
 <meta property="og:image" content="https://example.com/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -56,11 +56,6 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "هل التقييم مجاني؟",
-      "acceptedAnswer": { "@type": "Answer", "text": "نعم، التقييم الأولي مجاني خلال فترة الإطلاق التجريبية." }
-    },
     {
       "@type": "Question",
       "name": "كيف أعرف البرنامج المناسب لابني؟",
@@ -147,12 +142,13 @@
    TOKENS
 ============================================================ */
 :root{
-  --primary:#0E7A70;
-  --primary-dark:#0A4A45;
-  --primary-light:#1B9689;
-  --accent:#BD8B49;
-  --accent-text:#8C5F26;
-  --accent-soft:#F1E4CD;
+  --primary:#006B68;
+  --primary-dark:#004A47;
+  --primary-light:#18A7A5;
+  --accent:#D4A43A;
+  --accent-text:#8A6A1E;
+  --gold-soft:#E5C46A;
+  --accent-soft:#F8EFD6;
   --bg:#FAF9F5;
   --bg-alt:#F0F3EE;
   --bg-alt-2:#F5F0E7;
@@ -370,11 +366,6 @@ button{font-family:inherit;}
   padding:32px 28px 40px;
 }
 @media (min-width:960px){ .hero-visual{max-width:100%;} }
-.hero-visual .blob{
-  position:absolute; border-radius:50%; background:rgba(14,122,112,.05); z-index:0;
-}
-.hero-visual .blob-1{width:260px;height:260px; top:-70px; inset-inline-start:-80px;}
-.hero-visual .blob-2{width:70px;height:70px; bottom:14%; inset-inline-end:8%; border:1px solid var(--border); background:none;}
 .hero-visual .dotgrid{
   position:absolute; inset-inline-start:14px; top:44%; width:70px; height:70px; z-index:0;
   background-image:radial-gradient(var(--ink-faint) 1px, transparent 1px);
@@ -570,6 +561,7 @@ button{font-family:inherit;}
   position:relative; height:220px; width:320px; max-width:100%; margin:0 auto;
   display:flex; align-items:flex-end; justify-content:space-between; direction:ltr;
 }
+.relief-path .line-svg{position:absolute; inset:0; width:100%; height:100%; z-index:1; pointer-events:none;}
 .relief-path .node{
   position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px; flex-shrink:0;
 }
@@ -836,7 +828,7 @@ button{font-family:inherit;}
 ============================================================ -->
 <header class="site-header">
   <div class="container header-inner">
-    <a href="#hero" class="logo" aria-label="كانيتو — الصفحة الرئيسية"><img src="assets/logo.png" alt="" style="height:52px;width:auto;"><span class="logo-primary">كانيتو</span><span class="logo-tag" aria-hidden="true">منصة تعليمية</span></a>
+    <a href="#hero" class="logo" aria-label="كانيتو — الصفحة الرئيسية"><img src="assets/logo.png" alt="كانيتو" style="height:52px;width:auto;"></a>
 
     <div class="header-right">
       <nav class="main-nav" aria-label="التنقل الرئيسي">
@@ -852,7 +844,7 @@ button{font-family:inherit;}
         </ul>
       </nav>
 
-      <a href="#assessmentCard" class="btn btn-primary header-cta">ابدأ التقييم</a>
+      <a href="#assessmentCard" class="btn btn-primary header-cta">ابدأ تقييم احتياج ابنك</a>
     </div>
 
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="فتح القائمة">
@@ -872,7 +864,7 @@ button{font-family:inherit;}
       <li><a href="#contact">تواصل معنا</a></li>
     </ul>
     <div class="mobile-cta">
-      <a href="#assessmentCard" class="btn btn-primary">ابدأ التقييم</a>
+      <a href="#assessmentCard" class="btn btn-primary">ابدأ تقييم احتياج ابنك</a>
     </div>
   </nav>
 </header>
@@ -888,23 +880,7 @@ button{font-family:inherit;}
     </div>
 
     <div class="hero-visual" role="img" aria-label="رسم توضيحي لمسار تقدّم تعليمي متصاعد: بحث، تعلم، ممارسة، قياس، تحسين">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-      <div class="dotgrid"></div>
-
-      <div class="hero-path">
-        <svg class="line-svg" viewBox="0 0 320 220" preserveAspectRatio="none">
-          <path d="M28 192 L114 132 L200 72 L288 24"
-                stroke="var(--primary-dark)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="1 9"
-                fill="none" opacity=".5"/>
-          <path d="M288 24 L306 6" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" fill="none"/>
-          <path d="M296 4 L306 6 L300 15" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-        <span class="node n1" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
-        <span class="node n2" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
-        <span class="node n3" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg></span>
-        <span class="node n4" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></span>
-      </div>
+      <img src="assets/hero-visual.jpg" alt="" style="width:100%; height:auto; display:block; border-radius:var(--radius-lg);">
     </div>
   </div>
 </section>
@@ -958,7 +934,7 @@ button{font-family:inherit;}
 
     <div class="problem-statement reveal">
       <span>لا تبدأ بالكثير من اللقاءات التعليمية. ابدأ بفهم احتياج الطالب.</span>
-      <a href="#assessmentCard" class="btn btn-on-dark">ابدأ تقييم ابنك</a>
+      <a href="#assessmentCard" class="btn btn-on-dark">ابدأ تقييم احتياج ابنك</a>
     </div>
   </div>
 </section>
@@ -1039,6 +1015,11 @@ button{font-family:inherit;}
         </div>
       </div>
       <div class="relief-path" role="img" aria-label="مسار توضيحي: تقييم، تعلم، مراجعة، قياس، تحسين">
+        <svg class="line-svg" viewBox="0 0 320 220" preserveAspectRatio="none">
+          <path d="M26 188 Q56 168 66 155 Q76 142 86 138 Q120 118 140 103 Q150 95 160 88 Q195 68 215 58 Q225 53 234 48 Q265 33 280 26 Q288 22 294 20"
+                stroke="rgba(255,255,255,.55)" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1 8"
+                fill="none"/>
+        </svg>
         <span class="node first n1"><span class="dot"></span><span class="lbl">تقييم</span></span>
         <span class="node n2"><span class="dot"></span><span class="lbl">تعلم</span></span>
         <span class="node n3"><span class="dot"></span><span class="lbl">مراجعة</span></span>
@@ -1174,74 +1155,14 @@ button{font-family:inherit;}
   </div>
 </section>
 <!-- ============================================================
-     STUDENT JOURNEY (INSTITUTIONAL VIEW)
-============================================================ -->
-<section class="section" id="journey" aria-labelledby="journey-title">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">كيف نتابع الطالب؟</span>
-      <h2 id="journey-title">من التسجيل إلى المتابعة</h2>
-    </div>
-
-    <div class="journey-wrap">
-      <div class="journey-track">
-        <article class="journey-step"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><span class="num">٠١</span><h3>التقييم</h3><p>تحديد مستوى الطالب واحتياجه.</p></article>
-        <article class="journey-step"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><span class="num">٠٢</span><h3>تحديد البرنامج</h3><p>اختيار مستوى الدعم المناسب.</p></article>
-        <article class="journey-step"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span><span class="num">٠٣</span><h3>تنفيذ البرنامج</h3><p>تقديم اللقاءات التعليمية والمراجعات حسب البرنامج.</p></article>
-        <article class="journey-step"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18V10M12 18V6M20 18v-4"/></svg></span><span class="num">٠٤</span><h3>المتابعة</h3><p>متابعة الالتزام والحضور والأهداف التعليمية.</p></article>
-        <article class="journey-step"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span><span class="num">٠٥</span><h3>قياس التقدم</h3><p>مراجعة مستوى الطالب وتحديد الاحتياجات والخطوة التالية.</p></article>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ============================================================
-     WHY INSTITUTIONS TRUST US
-============================================================ -->
-<section class="section" id="institutional-trust" aria-labelledby="institutional-trust-title">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">للجهات والمؤسسات</span>
-      <h2 id="institutional-trust-title">لماذا تثق الجهات بكانيتو؟</h2>
-    </div>
-
-    <div class="why-grid">
-      <article class="why-card reveal">
-        <div class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg></div>
-        <h3>جهة نظامية</h3>
-        <p>معلومات وترخيصات واضحة وموثقة.</p>
-      </article>
-      <article class="why-card reveal">
-        <div class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4v16h16"/><path d="M8 14l3-3 3 2 5-5"/></svg></div>
-        <h3>منهجية واضحة</h3>
-        <p>رحلة الطالب تبدأ بالتقييم وتنتهي بالقياس والتحسين.</p>
-      </article>
-      <article class="why-card reveal">
-        <div class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg></div>
-        <h3>متابعة مستمرة</h3>
-        <p>لا تعتمد الخدمة على تقديم اللقاءات التعليمية فقط.</p>
-      </article>
-      <article class="why-card reveal">
-        <div class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12h6M12 9v6"/></svg></div>
-        <h3>وضوح في الخدمة</h3>
-        <p>برامج محددة وآلية متابعة واضحة.</p>
-      </article>
-      <article class="why-card reveal">
-        <div class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 8l4 4-4 4M7 8l-4 4 4 4M14 4l-4 16"/></svg></div>
-        <h3>قابلية للتعاون المؤسسي</h3>
-        <p>إمكانية تكييف الخدمة وفق متطلبات الجهة والطالب، ضمن نطاق الاتفاقية.</p>
-      </article>
-    </div>
-  </div>
-</section>
-<!-- ============================================================
-     PROGRESS LOOP
+     PROGRESS & REPORTING (MERGED)
 ============================================================ -->
 <section class="section section-alt" id="progress" aria-labelledby="progress-title">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">عندما لا يسير الأمر كما هو متوقع</span>
-      <h2 id="progress-title">وماذا لو لم يتحقق التقدم المتوقع؟</h2>
-      <p>لا نكتفي بعرض النتيجة. نراجع مستوى التقدم، ونحاول تحديد سبب التعثر، ثم نقرر ما إذا كان الطالب يحتاج إلى تعديل في طريقة التدريس أو مستوى الدعم أو الخطة التعليمية.</p>
+      <span class="eyebrow">قياس التقدم ومتابعته</span>
+      <h2 id="progress-title">نقيس، ونوثّق، ونعدّل عند الحاجة.</h2>
+      <p>نراجع مستوى التقدم أولًا بأول، ونوثّق رحلة الطالب بآلية واضحة تشمل الحضور والأهداف ومستوى الإنجاز، وإذا لم يتحقق التقدم المتوقع نعدّل طريقة الدعم ونعيد القياس.</p>
     </div>
 
     <div class="loop-row" role="list" aria-label="خطوات مراجعة التقدم">
@@ -1253,20 +1174,8 @@ button{font-family:inherit;}
       <span class="arrow" aria-hidden="true">←</span>
       <span class="step" role="listitem">نعيد القياس</span>
     </div>
-  </div>
-</section>
-<!-- ============================================================
-     REPORTING
-============================================================ -->
-<section class="section section-alt" id="reports" aria-labelledby="reports-title">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">متابعة وتقارير واضحة</span>
-      <h2 id="reports-title">متابعة وتقارير واضحة</h2>
-      <p>نحرص على توثيق رحلة الطالب التعليمية ومتابعة مستوى الالتزام والتقدم وفق آلية واضحة تساعد على فهم احتياج الطالب والخطوة التالية.</p>
-    </div>
 
-    <div class="trust-grid">
+    <div class="trust-grid" style="margin-top:32px;">
       <div class="trust-card">
         <span class="check" aria-hidden="true">✓</span>
         <div><h3>الحضور والالتزام</h3></div>
@@ -1287,31 +1196,9 @@ button{font-family:inherit;}
         <span class="check" aria-hidden="true">✓</span>
         <div><h3>التوصيات والخطوة التالية</h3></div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- ============================================================
-     TRUST
-============================================================ -->
-<section class="section" id="trust" aria-labelledby="trust-title">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">وضوح في الخدمة</span>
-      <h2 id="trust-title">تعليم يستند إلى وضوح وثقة.</h2>
-    </div>
-
-    <div class="trust-grid">
       <div class="trust-card">
         <span class="check" aria-hidden="true">✓</span>
-        <div><h3>معايير اختيار المعلمين</h3><p>نختار معلمينا وفق معايير تشمل المؤهل الأكاديمي، التخصص، الخبرة التعليمية، والقدرة على متابعة مستوى الطالب.</p></div>
-      </div>
-      <div class="trust-card">
-        <span class="check" aria-hidden="true">✓</span>
-        <div><h3>الاشتراك الشهري</h3><p>الاشتراك شهري، والدفع مُقدَّم.</p></div>
-      </div>
-      <div class="trust-card">
-        <span class="check" aria-hidden="true">✓</span>
-        <div><h3>بيانات الطلاب</h3><p>نلتزم بالتعامل مع بيانات الطلاب وأولياء الأمور وفق السياسات والأنظمة المعمول بها.</p></div>
+        <div><h3>معايير اختيار المعلمين</h3><p>مؤهل أكاديمي، تخصص، وخبرة تعليمية مناسبة.</p></div>
       </div>
     </div>
   </div>
@@ -1328,11 +1215,6 @@ button{font-family:inherit;}
 
     <div class="faq-list">
       <details class="faq-item" open>
-        <summary>هل التقييم مجاني؟<span class="plus" aria-hidden="true">+</span></summary>
-        <div class="faq-a">نعم، التقييم الأولي مجاني خلال فترة الإطلاق التجريبية.</div>
-      </details>
-
-      <details class="faq-item">
         <summary>كيف أعرف البرنامج المناسب لابني؟<span class="plus" aria-hidden="true">+</span></summary>
         <div class="faq-a">نبدأ بفهم مستوى الطالب واحتياجه، ثم نساعدك على تحديد مستوى الدعم الأنسب له.</div>
       </details>
@@ -1378,10 +1260,9 @@ button{font-family:inherit;}
       <h2 id="final-cta-title">ابدأ من حيث يوجد ابنك اليوم.</h2>
       <p>فهم نقطة البداية هو الخطوة الأولى لاختيار المسار التعليمي المناسب.</p>
       <div class="btn-row">
-        <a href="#assessmentCard" class="btn btn-on-dark">ابدأ تقييم ابنك</a>
+        <a href="#assessmentCard" class="btn btn-on-dark">ابدأ تقييم احتياج ابنك</a>
         <a href="#contact" class="btn btn-outline-on-dark">تحدث مع كانيتو</a>
       </div>
-      <p class="note">التقييم الأولي مجاني خلال فترة الإطلاق التجريبية.</p>
     </div>
 
     <div class="contact-info-panel reveal" id="clientContact">
@@ -1421,7 +1302,7 @@ button{font-family:inherit;}
 
     <div class="assessment-card reveal" id="assessmentCard">
       <form class="assessment-form" id="assessmentForm">
-        <span class="eyebrow" style="margin-bottom:14px;">التقييم الأولي مجاني الآن</span>
+        <span class="eyebrow" style="margin-bottom:14px;">ابدأ تقييم احتياج ابنك</span>
         <h3>احجز تقييم ابنك</h3>
         <p>عبّئ البيانات وسنفتح لك محادثة واتساب مباشرة مع فريق كانيتو لتحديد الموعد. هذه خطوة تقييم وتعرّف فقط، بلا أي التزام.</p>
 
@@ -1509,7 +1390,7 @@ button{font-family:inherit;}
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="logo"><img src="assets/logo.png" alt="" style="height:30px;width:auto;"><span class="logo-primary">كانيتو</span><span class="logo-secondary">Can Ito</span></div>
+        <div class="logo"><img src="assets/logo.png" alt="كانيتو" style="height:38px;width:auto;"></div>
         <p>كانيتو — خطوة مناسبة نحو تقدم حقيقي.</p>
       </div>
 
@@ -1544,8 +1425,8 @@ button{font-family:inherit;}
      STICKY MOBILE CTA
 ============================================================ -->
 <div class="sticky-cta" id="stickyCta">
-  <span>التقييم الأولي مجاني الآن</span>
-  <a href="#assessmentCard" class="btn btn-primary">ابدأ تقييم ابنك</a>
+  <span>هل تحتاج ابنك دعمًا تعليميًا؟</span>
+  <a href="#assessmentCard" class="btn btn-primary">ابدأ تقييم احتياج ابنك</a>
 </div>
 
 <script>
@@ -1629,7 +1510,7 @@ button{font-family:inherit;}
       e.preventDefault();
       const data = new FormData(assessmentForm);
       const lines = [
-        'السلام عليكم، أحب أحجز تقييم مجاني لابني/ابنتي عبر كانيتو:',
+        'السلام عليكم، أحب أحجز تقييم لابني/ابنتي عبر كانيتو:',
         `اسم ولي الأمر: ${data.get('parentName')}`,
         `رقم الجوال: ${data.get('parentPhone')}`,
         `اسم الطالب: ${data.get('studentName')}`,
